@@ -6,4 +6,4 @@ github: mtimmerm
 twitter: matt_timmermans
 ---
 
-**Matt Timmermans** was a Senior Principal Software Engineer at Tripadvisor, integrating OpenSearch into a low-latency CQRS back-end.
+**Matt Timmermans** was a Senior Principal Software Engineer at Tripadvisor, integrating OpenSearch into a low-latency CQRS backend. He is currently a Principal Engineer at Amazon.
