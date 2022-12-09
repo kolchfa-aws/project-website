@@ -23,7 +23,7 @@ OpenSearch clients now support the ability to sign requests using [AWS Signature
 
 ## Setting up the managed service to use fine-grained access control
 
-Be sure to update your access control to an AWS Identity Access Manager (IAM) role/user. Do not use the master user role. In the following image, the IAM role allows access to the specific OpenSearch domain that is selected:
+Be sure to update your access control type to an AWS Identity Access Manager (IAM) role/user. Do not use the master user role. In the following image, the IAM role allows access to the specific OpenSearch domain that is selected:
 
 ![Fine Grained Access Control]({{ site.baseurl }}/assets/media/blog-images/2022-12-09-aws-sigv4-support-for-clients/fine-grained-control.png){: .img-fluid}
 
@@ -216,7 +216,7 @@ let client = OpenSearch::new(transport);
 
 ### Creating a client connection in PHP
 
-The PHP client uses the `setSigV4CredentialProvider` attribute to assume credentials from the the local credential store. Use the `setSigV4Region` attribute to set the region. 
+The PHP client uses the `setSigV4CredentialProvider` attribute to assume credentials from the the local credential store. Use the `setSigV4Region` attribute to set the AWS Region: 
 
 ```php
 <?php
