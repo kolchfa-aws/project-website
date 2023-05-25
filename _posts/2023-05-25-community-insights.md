@@ -6,8 +6,8 @@ authors:
 date: 2023-05-25
 categories:
  - community
-meta_keywords: segment replication, document replication, document-based replication, cross-cluster replication
-meta_description: Learn how OpenSearch segment replication increases index throughput and lowers compute costs by performing heavy indexing workloads only on primary shards.
+meta_keywords: 
+meta_description: 
 excerpt: In February of 2023, the OpenSearch Projects team talked to seven OpenSearch community members about their experience with using OpenSearch Dashboards. These community members were selected because they responded to a call for participants in one of our community meetings. We wanted to recruit OpenSearch community members who regularly created dashboards, so we could explore their pain points and frustrations. Dashboards are typically created by community members who either consume the dashboards themselves, or they create dashboards that are consumed by their community members (that is, dashboard consumers).
 ---
 
