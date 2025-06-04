@@ -31,12 +31,13 @@ jobs:
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
         id: check-issues
         run: |
-          echo '${{ github.event.pull_request.body }}' | grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+" > /dev/null
-          if [ $? -eq 0 ]; then
-            echo "has_issue=true" &gt;&gt; $GITHUB_OUTPUT
+          echo "${{ github.event.pull_request.body }}" > pr_body.txt
+          if grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+" pr_body.txt > /dev/null; then
+            echo "has_issue=true" >> $GITHUB_OUTPUT
           else
-            echo "has_issue=false" &gt;&gt; $GITHUB_OUTPUT
+            echo "has_issue=false" >> $GITHUB_OUTPUT
           fi
+          rm pr_body.txt
 
       - name: Comment if no linked issue
         if: steps.check-new-blog.outputs.is_new_blog == 'true' && steps.check-issues.outputs.has_issue == 'false'
