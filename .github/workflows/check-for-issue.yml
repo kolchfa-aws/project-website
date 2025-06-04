@@ -27,22 +27,14 @@ jobs:
             echo "is_new_blog=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Get PR body
-        if: steps.check-new-blog.outputs.is_new_blog == 'true'
-        id: pr-body
-        run: |
-          body="${{ github.event.pull_request.body }}"
-          echo "body=${body}" >> $GITHUB_OUTPUT
-
       - name: Check for linked issues
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
         id: check-issues
         run: |
-          body="${{ github.event.pull_request.body }}"
-          if echo "$body" | grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+"; then
-            echo "has_issue=true" >> $GITHUB_OUTPUT
+          if grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+" &lt;&lt;&lt; "${{ github.event.pull_request.body }}"; then
+            echo "has_issue=true" &gt;&gt; $GITHUB_OUTPUT
           else
-            echo "has_issue=false" >> $GITHUB_OUTPUT
+            echo "has_issue=false" &gt;&gt; $GITHUB_OUTPUT
           fi
 
       - name: Comment if no linked issue
