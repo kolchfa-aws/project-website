@@ -15,6 +15,8 @@ redirect_from: /blog/odfe-updates/2019/09/Check-out-earlier-blogposts-on-Open-Di
 ---
 Hi Open Distro blog readers,
 
+
+
 Check out earlier blogs posts for Open Distro for Elasticsearch which were published on the AWSOpen blog. Going forward, bookmark the Open Distro blog as your source for in-depth, technical articles on the project. You’ll find how-tos, release notes, case studies, event announcements, and if you’re inspired to contribute, your own content, too!
 
 <b>Add Single Sign-On (SSO) to Open Distro for Elasticsearch Kibana Using SAML and Okta</b>
