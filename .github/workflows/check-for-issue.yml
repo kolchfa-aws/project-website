@@ -20,7 +20,7 @@ jobs:
           files_added=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/files" \
             | jq -r '.[] | select(.status == "added" and (.filename | startswith("_posts/"))) | .filename')
-          
+
           if [ ! -z "$files_added" ]; then
             echo "is_new_blog=true" >> $GITHUB_OUTPUT
           else
@@ -34,9 +34,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Thank you for submitting a blog!
-          
-            The blog process is Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
+            Thank you for submitting a blog post!
+
+            The blog post review process is: Submit a PR -> (Optional) Peer review -> Doc review -> Editorial review -> Marketing review -> Published.
 
       - name: Check for linked issues
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
@@ -58,10 +58,13 @@ jobs:
           issue-number: ${{ github.event.pull_request.number }}
           body: |
             Hi @${{ github.event.pull_request.user.login }}, 
-            
-            Looks like you're adding a new blog post and you don't have an issue mentioned. Please link this PR to an open issue using one of these keywords in the PR description:
+
+            It looks like you're adding a new blog post but don't have an issue mentioned. Please link this PR to an open issue using one of these keywords in the PR description:
             - Closes #issue-number
             - Fixes #issue-number
             - Resolves #issue-number
-            
+
+            If an issue hasn't been created yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
+
+
             If there isn't an issue yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
