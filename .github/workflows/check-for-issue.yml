@@ -65,6 +65,3 @@ jobs:
             - Resolves #issue-number
 
             If an issue hasn't been created yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
-
-
-            If there isn't an issue yet, please [create one](https://github.com/opensearch-project/project-website/issues/new?template=blog_post.yml) and then link it to this PR.
