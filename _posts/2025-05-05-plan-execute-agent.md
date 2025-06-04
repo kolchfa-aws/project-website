@@ -419,6 +419,8 @@ One such example would be using the [WebSearchTool](https://docs.opensearch.org/
 
 Additionally, this agent functions as an MCP client, enabling it to connect to MCP servers. This capability allows the agent to dynamically retrieve tools and configurations and participate in more complex workflows.
 
+
+
 To learn how too connect your agent to an MCP server, see [Connecting to an external MCP server](https://docs.opensearch.org/docs/latest/ml-commons-plugin/agents-tools/mcp/mcp-connector/).
 
 ### Recommendations and troubleshooting
