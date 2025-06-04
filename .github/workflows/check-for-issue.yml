@@ -1,4 +1,4 @@
-name: Check for issue for blogs
+name: Check for blog issue 
 
 on:
   pull_request:
@@ -31,7 +31,8 @@ jobs:
         if: steps.check-new-blog.outputs.is_new_blog == 'true'
         id: check-issues
         run: |
-          if grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+" &lt;&lt;&lt; "${{ github.event.pull_request.body }}"; then
+          echo '${{ github.event.pull_request.body }}' | grep -iE "(closes|fixes|resolves|references|ref|close|fix|resolve) #[0-9]+" > /dev/null
+          if [ $? -eq 0 ]; then
             echo "has_issue=true" &gt;&gt; $GITHUB_OUTPUT
           else
             echo "has_issue=false" &gt;&gt; $GITHUB_OUTPUT
